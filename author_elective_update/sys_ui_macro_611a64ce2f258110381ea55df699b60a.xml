@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_macro">
+    <sys_ui_macro action="DELETE">
+        <active>true</active>
+        <category>general</category>
+        <description/>
+        <media_type/>
+        <name>ajax_call</name>
+        <scoped_name>x_58872_needit_ajax_call</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-02-09 17:29:22</sys_created_on>
+        <sys_id>611a64ce2f258110381ea55df699b60a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ajax_call</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_ui_macro_611a64ce2f258110381ea55df699b60a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-02-09 17:29:22</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+
+
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+
+
+  <!--<g:requires name="angularjs.min.1.3.14.jsdbx" /> -->
+
+
+  <script>https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+
+  <script>
+
+
+  var myApp = angular.module('descEditor', []);
+
+
+  myApp.controller('KnowledgeSearch', [
+
+
+      '$scope',
+
+
+      '$http',
+
+
+      function($scope, $http) {
+
+
+          $scope.knowledge = "";
+
+
+          $scope.url = '/api/now/table/kb_knowledge';
+
+
+          $http.defaults.headers.common.Accept = "application/json";
+
+
+       
+
+
+          $scope.updateList = function(knowledge) {
+
+
+              $http({
+
+
+                  method: 'GET',
+
+
+                  url: $scope.url + "?sysparm_query=short_descriptionCONTAINS"+knowledge+"^workflow_state=published",
+
+
+              }).
+
+
+              success( function(data, status) {
+
+
+                  $scope.descriptions = data.result;
+
+
+              }).
+
+
+              error ( function(data, status) {
+
+
+                  $scope.descriptions = [{"knowledge": "Error fetching list"}];
+
+
+              });
+
+
+          }
+
+
+      }
+
+
+  ] );
+
+
+  </script>
+
+
+<tr>
+
+
+      <div style="display:block;" ng-app="descEditor">
+
+
+          <div ng-controller="KnowledgeSearch">
+
+
+                      <p>Knowledge Search</p>
+
+
+                      <input ng-model="knowledge" ng-change="updateList(knowledge);"/>
+
+
+                      <div ng-repeat="desc in descriptions"><a href="kb_knowledge.do?sys_id={{desc.sys_id}}">{{desc.short_description}}</a></div>
+
+
+          </div>
+
+
+      </div>
+
+
+  </tr>
+
+
+</j:jelly>]]></xml>
+    </sys_ui_macro>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</application>
+        <file_path/>
+        <instance_id>77f2fcbadba604902f68c597059619b0</instance_id>
+        <instance_name>dev98027</instance_name>
+        <name>sys_ui_macro_611a64ce2f258110381ea55df699b60a</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ui_macro"&gt;&lt;sys_ui_macro action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;category&gt;general&lt;/category&gt;&lt;description/&gt;&lt;media_type/&gt;&lt;name&gt;ajax_call&lt;/name&gt;&lt;scoped_name&gt;x_58872_needit_ajax_call&lt;/scoped_name&gt;&lt;sys_class_name&gt;sys_ui_macro&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-02-09 17:29:22&lt;/sys_created_on&gt;&lt;sys_id&gt;611a64ce2f258110381ea55df699b60a&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;ajax_call&lt;/sys_name&gt;&lt;sys_package display_value="NeedIt" source="x_58872_needit"&gt;6ead8e780f603200cd674f8ce1050ed1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="NeedIt"&gt;6ead8e780f603200cd674f8ce1050ed1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_macro_611a64ce2f258110381ea55df699b60a&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-02-09 17:29:22&lt;/sys_updated_on&gt;&lt;xml&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+
+
+&lt;j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null"&gt;
+
+
+  &lt;!--&lt;g:requires name="angularjs.min.1.3.14.jsdbx" /&gt; --&gt;
+
+
+  &lt;script&gt;https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"&gt;&lt;/script&gt;
+
+
+  &lt;script&gt;
+
+
+  var myApp = angular.module('descEditor', []);
+
+
+  myApp.controller('KnowledgeSearch', [
+
+
+      '$scope',
+
+
+      '$http',
+
+
+      function($scope, $http) {
+
+
+          $scope.knowledge = "";
+
+
+          $scope.url = '/api/now/table/kb_knowledge';
+
+
+          $http.defaults.headers.common.Accept = "application/json";
+
+
+       
+
+
+          $scope.updateList = function(knowledge) {
+
+
+              $http({
+
+
+                  method: 'GET',
+
+
+                  url: $scope.url + "?sysparm_query=short_descriptionCONTAINS"+knowledge+"^workflow_state=published",
+
+
+              }).
+
+
+              success( function(data, status) {
+
+
+                  $scope.descriptions = data.result;
+
+
+              }).
+
+
+              error ( function(data, status) {
+
+
+                  $scope.descriptions = [{"knowledge": "Error fetching list"}];
+
+
+              });
+
+
+          }
+
+
+      }
+
+
+  ] );
+
+
+  &lt;/script&gt;
+
+
+&lt;tr&gt;
+
+
+      &lt;div style="display:block;" ng-app="descEditor"&gt;
+
+
+          &lt;div ng-controller="KnowledgeSearch"&gt;
+
+
+                      &lt;p&gt;Knowledge Search&lt;/p&gt;
+
+
+                      &lt;input ng-model="knowledge" ng-change="updateList(knowledge);"/&gt;
+
+
+                      &lt;div ng-repeat="desc in descriptions"&gt;&lt;a href="kb_knowledge.do?sys_id={{desc.sys_id}}"&gt;{{desc.short_description}}&lt;/a&gt;&lt;/div&gt;
+
+
+          &lt;/div&gt;
+
+
+      &lt;/div&gt;
+
+
+  &lt;/tr&gt;
+
+
+&lt;/j:jelly&gt;]]&gt;&lt;/xml&gt;&lt;/sys_ui_macro&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>2086562624</payload_hash>
+        <record_name>ajax_call</record_name>
+        <reverted_from/>
+        <source>8d9ef8182f210110381ea55df699b679</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-02-09 17:29:22</sys_created_on>
+        <sys_id>472aa4ce2f258110381ea55df699b62e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17edf885ab50000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-02-09 17:29:22</sys_updated_on>
+        <type>Macro</type>
+        <update_guid>8f2aa4ceeb25811099cc97bea1b2292d</update_guid>
+        <update_guid_history>8f2aa4ceeb25811099cc97bea1b2292d:2086562624</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-02-09 17:29:43</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_macro">sys_ui_macro</sys_db_object>
+        <sys_id>a213fea1e0ee4a18bc36fca266555681</sys_id>
+        <sys_metadata>611a64ce2f258110381ea55df699b60a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ajax_call</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_scope_delete display_value="">94872a8897db403e8ee69a431de2fca4</sys_scope_delete>
+        <sys_update_name>sys_ui_macro_611a64ce2f258110381ea55df699b60a</sys_update_name>
+        <sys_update_version display_value="sys_ui_macro_611a64ce2f258110381ea55df699b60a">472aa4ce2f258110381ea55df699b62e</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-02-09 17:29:43</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

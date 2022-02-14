@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Needit M2m Needit2s Aggregates" max_length="40" name="x_58872_needit_m2m_needit2s_aggregates" sizeclass="0" type="collection">
+        <element attributes="encode_utf8=false" label="Needit2" max_length="32" name="aggregatedby" reference="x_58872_needit_needit2" type="reference"/>
+        <element attributes="encode_utf8=false" label="Needit2" max_length="32" name="aggregates" reference="x_58872_needit_needit2" type="reference"/>
+        <element label="Other description" max_length="4000" name="other_description" type="string"/>
+        <index name="index">
+            <element name="aggregatedby"/>
+        </index>
+        <index name="index2">
+            <element name="aggregates"/>
+        </index>
+    </element>
+</database>

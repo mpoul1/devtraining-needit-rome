@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="aggregated by  ext" max_length="40" name="x_58872_needit_parent_child_ext" sizeclass="0" type="collection">
+        <element display="true" label="Relation" max_length="32" name="relation" reference="cmdb_class_relationships" type="reference"/>
+        <index name="index">
+            <element name="relation"/>
+        </index>
+    </element>
+</database>
